@@ -1,0 +1,31 @@
+{{template "header"}}
+
+<main class="container">
+  <h1>Editar Cliente</h1>
+
+  <div class="row">
+    {{if ne .Css ""}}
+    <div class="alert alert-{{.Css}} alert-dismissible fade show">
+      {{.Message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{end}}
+    <form action="/mysql/edit-post/{{.Datos.Id}}" method="POST">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input id="nombre" name="nombre" type="text" class="form-control" value="{{.Datos.Nombre}}" required />
+      </div>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo</label>
+        <input type="text" id="correo" name="correo" class="form-control" value="{{.Datos.Correo}}" required />
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Telefono</label>
+        <input type="text" class="form-control" name="telefono" id="telefono" value="{{.Datos.Telefono}}" required />
+      </div>
+      <button type="submit" class="btn btn-primary mb-3">Guardar</button>
+    </form>
+  </div>
+</main>
+
+{{template "footer"}}

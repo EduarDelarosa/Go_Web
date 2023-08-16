@@ -1,0 +1,21 @@
+{{template "header"}}
+
+<main class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/resources">Recursos útiles</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Crear PDF</li>
+    </ol>
+  </nav>
+  <h1>Generar PDF</h1>
+  {{if ne .css ""}}
+  <div class="alert alert-{{.css}} alert-dismissible fade show">
+    {{.message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{end}}
+  <a href="/generate" class="btn btn-danger"> <i class="fas fa-file-pdf"></i> Crear</a>
+</main>
+
+{{template "footer"}}

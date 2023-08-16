@@ -1,0 +1,46 @@
+{{template "header"}}
+
+<main class="container">
+  <h1>MySql</h1>
+  {{if ne .Css ""}}
+    <div class="alert alert-{{.Css}} alert-dismissible fade show">
+      {{.Message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {{end}}
+  <p class="d-flex justify-content-end">
+    <a class="btn btn-success" href="/mysql/create"> <i class="fas fa-check"></i> Crear</a>
+  </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Telefono</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .Datos}}
+        <tr>
+          <td>{{.Id}}</td>
+          <td>{{.Nombre}}</td>
+          <td>{{.Correo}}</td>
+          <td>{{.Telefono}}</td>
+          <td>{{.Fecha}}</td>
+          <td>
+            <a href="/mysql/edit/{{.Id}}"> <i class="fas fa-edit"></i> </a>
+            <a href="javascript:void(0);" onclick="confirmarSweet('Seguro que desea eliminar este registro?','/mysql/delete/{{.Id}}')"> <i class="fas fa-trash text-danger"></i> </a>
+          </td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
+</main>
+
+
+{{template "footer"}}

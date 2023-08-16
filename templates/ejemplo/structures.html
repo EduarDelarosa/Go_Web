@@ -1,0 +1,53 @@
+{{template "header"}}
+
+  <main class="container">
+    <h1>Estructuras</h1>
+    <h3>Declaración de variables</h3>
+    {{ with $valor := "Un valor diferente :v" }}
+    <p>{{$valor}}</p>
+    {{end}}
+    <hr>
+    <h3>Valores desde struct</h3>
+    <ul>
+      <li>{{.Nombre}}</li>
+      <li>{{.Edad}}</li>
+      <li>{{.Perfil}}</li>
+    </ul>
+    <hr>
+    <h3>Condiciones</h3>
+    <!-- Operadores lógicos
+  
+    not !
+    and &&
+    or ||
+  
+    Operadores condicionales
+    eq ==
+    ne !=
+    lt <
+    le >
+    gt >= 
+    ge <= -->
+  
+    {{if ge .Edad 18}}
+      <p>Eres mayor de edad</p>
+      {{else}}
+      <p>Eres menor de edad</p>
+    {{end}}
+      {{if eq .Perfil 1}}
+      <p>Eres administrador</p>
+      {{else}}
+      <p>Ni siquiera se quien eres :v</p>
+      {{end}}
+      <hr>
+      <h3>Iteraciones</h3>
+      {{.Nombre}}
+      {{.Habilidades}}
+      <ul>
+        {{range .Habilidades}}
+        <li>{{.Nombre}}</li>
+        {{end}}
+      </ul>
+  </main>
+
+{{template "footer"}}

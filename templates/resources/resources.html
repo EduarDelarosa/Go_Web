@@ -1,0 +1,19 @@
+{{template "header"}}
+
+<main class="container">
+  <h1>Recursos útiles</h1>
+  {{if ne .css ""}}
+  <div class="alert alert-{{.css}} alert-dismissible fade show">
+    {{.message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{end}}
+  <ul>
+    <li><a href="/pdf">Generar PDF</a></li>
+    <li><a href="/excel">Generar Excel</a></li>
+    <li><a href="/qr">Generar QR</a></li>
+    <li><a href="/email">Enviar Email</a></li>
+  </ul>
+</main>
+
+{{template "footer"}}

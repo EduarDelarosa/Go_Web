@@ -1,0 +1,16 @@
+{{template "header"}}
+
+<main class="container">
+  <h1>Ruta Protegida</h1>
+  <div>
+    <p>Hola {{.user_name}}</p>
+
+    <p>
+      <a class="btn btn-danger" href="javascript:void(0);" onclick="confirmarSweet('Esta seguro que desea cerrar su sesión?', '/segurity/logout')">
+        <i class="fas fa-power-off"></i> Cerrar sesión
+      </a>
+    </p>
+  </div>
+</main>
+
+{{template "footer"}}
